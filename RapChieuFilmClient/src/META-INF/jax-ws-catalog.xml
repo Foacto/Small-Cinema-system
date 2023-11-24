@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8080/ServerKTTKPM/UserWS?wsdl" uri="wsdl/localhost_8080/ServerKTTKPM/UserWS.wsdl"/>
+    <system systemId="http://localhost:8080/ServerKTTKPM/UserWS?xsd=1" uri="wsdl/localhost_8080/ServerKTTKPM/UserWS.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/ServerKTTKPM/ManagerWS?wsdl" uri="wsdl/localhost_8080/ServerKTTKPM/ManagerWS.wsdl"/>
+    <system systemId="http://localhost:8080/ServerKTTKPM/ManagerWS?xsd=1" uri="wsdl/localhost_8080/ServerKTTKPM/ManagerWS.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/PaymentService/VisaWS?wsdl" uri="wsdl/localhost_8080/PaymentService/VisaWS.wsdl"/>
+    <system systemId="http://localhost:8080/PaymentService/VisaWS?xsd=1" uri="wsdl/localhost_8080/PaymentService/VisaWS.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/PaymentService/MasterCardWS?wsdl" uri="wsdl/localhost_8080/PaymentService/MasterCardWS.wsdl"/>
+    <system systemId="http://localhost:8080/PaymentService/MasterCardWS?xsd=1" uri="wsdl/localhost_8080/PaymentService/MasterCardWS.xsd_1.xsd"/>
+</catalog>

@@ -1,0 +1,368 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (https://github.com/eclipse-ee4j/metro-jax-ws). RI's version is Eclipse Metro/2.4.8 (RELEASE-2.4.8-e044505; 2022-01-04T13:29:23+0000) JAXWS-RI/2.3.5 JAXWS-API/2.3.3 JAXB-RI/2.3.5 JAXB-API/2.3.3 git-revision#e044505. --><xs:schema xmlns:tns="http://ws.test.htc.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://ws.test.htc.com/">
+
+<xs:element name="addBill" type="tns:addBill"/>
+
+<xs:element name="addBillResponse" type="tns:addBillResponse"/>
+
+<xs:element name="getBill" type="tns:getBill"/>
+
+<xs:element name="getBillResponse" type="tns:getBillResponse"/>
+
+<xs:element name="getCus" type="tns:getCus"/>
+
+<xs:element name="getCusResponse" type="tns:getCusResponse"/>
+
+<xs:element name="getEmp" type="tns:getEmp"/>
+
+<xs:element name="getEmpResponse" type="tns:getEmpResponse"/>
+
+<xs:element name="getFilm" type="tns:getFilm"/>
+
+<xs:element name="getFilmResponse" type="tns:getFilmResponse"/>
+
+<xs:element name="getListFilm" type="tns:getListFilm"/>
+
+<xs:element name="getListFilmCategory" type="tns:getListFilmCategory"/>
+
+<xs:element name="getListFilmCategoryResponse" type="tns:getListFilmCategoryResponse"/>
+
+<xs:element name="getListFilmResponse" type="tns:getListFilmResponse"/>
+
+<xs:element name="getListShowTimesOfFilm" type="tns:getListShowTimesOfFilm"/>
+
+<xs:element name="getListShowTimesOfFilmResponse" type="tns:getListShowTimesOfFilmResponse"/>
+
+<xs:element name="getShowTimesDetails" type="tns:getShowTimesDetails"/>
+
+<xs:element name="getShowTimesDetailsResponse" type="tns:getShowTimesDetailsResponse"/>
+
+<xs:element name="login" type="tns:login"/>
+
+<xs:element name="loginResponse" type="tns:loginResponse"/>
+
+<xs:element name="logout" type="tns:logout"/>
+
+<xs:element name="logoutResponse" type="tns:logoutResponse"/>
+
+<xs:element name="register" type="tns:register"/>
+
+<xs:element name="registerResponse" type="tns:registerResponse"/>
+
+<xs:element name="searchFilm" type="tns:searchFilm"/>
+
+<xs:element name="searchFilmResponse" type="tns:searchFilmResponse"/>
+
+<xs:element name="updatePaidBill" type="tns:updatePaidBill"/>
+
+<xs:element name="updatePaidBillResponse" type="tns:updatePaidBillResponse"/>
+
+<xs:complexType name="getEmp">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getEmpResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:employee" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="employee">
+<xs:complexContent>
+<xs:extension base="tns:user">
+<xs:sequence>
+<xs:element name="salary" type="xs:double"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="user">
+<xs:sequence>
+<xs:element name="id" type="xs:int"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+<xs:element name="status" type="xs:boolean"/>
+<xs:element name="type" type="xs:string" minOccurs="0"/>
+<xs:element name="username" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getListShowTimesOfFilm">
+<xs:sequence>
+<xs:element name="film" type="tns:film" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="film">
+<xs:sequence>
+<xs:element name="list-film-category" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="film-category" type="tns:filmCategory" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="list-show-time" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="show-time" type="tns:showTimes" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="des" type="xs:string" minOccurs="0"/>
+<xs:element name="director" type="xs:string" minOccurs="0"/>
+<xs:element name="fp" type="tns:filmProvider" minOccurs="0"/>
+<xs:element name="id" type="xs:int"/>
+<xs:element name="length" type="xs:string" minOccurs="0"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="rate" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="filmCategory">
+<xs:sequence>
+<xs:element name="id" type="xs:int"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="showTimes">
+<xs:sequence>
+<xs:element name="list-ticket" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="ticket" type="tns:ticket" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="film" type="tns:film" minOccurs="0"/>
+<xs:element name="filmRoom" type="tns:filmRoom" minOccurs="0"/>
+<xs:element name="id" type="xs:int"/>
+<xs:element name="timeEnd" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="timeStart" type="xs:dateTime" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ticket">
+<xs:sequence>
+<xs:element name="bill" type="tns:bill" minOccurs="0"/>
+<xs:element name="c" type="tns:filmRoomChair" minOccurs="0"/>
+<xs:element name="des" type="xs:string" minOccurs="0"/>
+<xs:element name="id" type="xs:int"/>
+<xs:element name="price" type="xs:double"/>
+<xs:element name="sold" type="xs:boolean" minOccurs="0"/>
+<xs:element name="st" type="tns:showTimes" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="bill">
+<xs:sequence>
+<xs:element name="list-ticket" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="ticket" type="tns:ticket" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="customer" type="tns:customer" minOccurs="0"/>
+<xs:element name="employee" type="tns:employee" minOccurs="0"/>
+<xs:element name="id" type="xs:int"/>
+<xs:element name="note" type="xs:string" minOccurs="0"/>
+<xs:element name="sellDate" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="total" type="xs:double"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="customer">
+<xs:complexContent>
+<xs:extension base="tns:user">
+<xs:sequence>
+<xs:element name="des" type="xs:string" minOccurs="0"/>
+<xs:element name="phonenumber" type="xs:string" minOccurs="0"/>
+<xs:element name="point" type="xs:long"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="filmRoomChair">
+<xs:sequence>
+<xs:element name="id" type="xs:int"/>
+<xs:element name="location" type="xs:string" minOccurs="0"/>
+<xs:element name="type" type="tns:chairType" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="chairType">
+<xs:sequence>
+<xs:element name="des" type="xs:string" minOccurs="0"/>
+<xs:element name="status" type="xs:string" minOccurs="0"/>
+<xs:element name="type" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="filmRoom">
+<xs:sequence>
+<xs:element name="list-chair" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="chair" type="tns:filmRoomChair" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="id" type="xs:int"/>
+<xs:element name="note" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="filmProvider">
+<xs:sequence>
+<xs:element name="list-film" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="film" type="tns:film" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="des" type="xs:string" minOccurs="0"/>
+<xs:element name="id" type="xs:int"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getListShowTimesOfFilmResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:showTimes" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="register">
+<xs:sequence>
+<xs:element name="customer" type="tns:customer" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="registerResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getListFilm">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getListFilmResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:film" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="logout">
+<xs:sequence>
+<xs:element name="user" type="tns:user" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="logoutResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="updatePaidBill">
+<xs:sequence>
+<xs:element name="billId" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updatePaidBillResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="addBill">
+<xs:sequence>
+<xs:element name="bill" type="tns:bill" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addBillResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:bill" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getListFilmCategory">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getListFilmCategoryResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:filmCategory" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="login">
+<xs:sequence>
+<xs:element name="user" type="tns:user" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="loginResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:user" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="searchFilm">
+<xs:sequence>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="searchFilmResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:film" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getBill">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getBillResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:bill" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getCus">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getCusResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:customer" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getFilm">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getFilmResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:film" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getShowTimesDetails">
+<xs:sequence>
+<xs:element name="showTimes" type="tns:showTimes" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getShowTimesDetailsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:showTimes" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
